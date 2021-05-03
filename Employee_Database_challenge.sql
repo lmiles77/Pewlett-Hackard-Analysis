@@ -16,9 +16,9 @@ INTO retirement_titles
 SELECT * FROM retirement_titles
 
 SELECT DISTINCT ON (rt.emp_no) rt.emp_no,
-   rt.first_name,
-   rt.last_name,
-   rt.title
+	rt.first_name,
+ 	rt.last_name,
+	rt.title
 INTO unique_titles
    FROM retirement_titles AS rt
    ORDER BY emp_no ASC, to_date DESC;
@@ -26,9 +26,9 @@ INTO unique_titles
 SELECT * FROM unique_titles
 
 SELECT COUNT (title), 
-title
-INTO retiring_titles
-FROM unique_titles
-GROUP BY title
-ORDER BY count desc;
+	title
+	INTO retiring_titles
+	FROM unique_titles
+	GROUP BY title
+	ORDER BY count desc;
 SELECT * FROM retiring_titles
